@@ -14,8 +14,6 @@ import org.junit.jupiter.api.AfterEach;
 
 
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.TestInstance;
-import org.junit.jupiter.api.TestInstance.Lifecycle;
 
 import org.junit.jupiter.api.Test;
 
@@ -24,10 +22,10 @@ import org.junit.jupiter.api.Test;
 public class FlatMapExamplesTest{
 
 
-    Stream<String> stream1 = null;
-    Stream<String> stream2 = null;
-    Stream<String> stream3 = null;
-    Stream<String> stream4 = null;
+    Stream<String> stream1;
+    Stream<String> stream2;
+    Stream<String> stream3;
+    Stream<String> stream4;
  
 
     @BeforeEach
