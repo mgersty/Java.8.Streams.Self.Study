@@ -94,6 +94,4 @@ public class FlatMapExamplesTest{
         stream3.close();
         stream4.close();
     }
-
-
 }

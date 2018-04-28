@@ -1,15 +1,21 @@
 package org.gersty.learning.streams;
 
 import org.gersty.learning.streams.model.Person;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Spliterator;
+import java.util.stream.Collector;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 import java.util.stream.StreamSupport;
 import java.util.List;
 import java.util.ArrayList;
+
 
 import org.junit.jupiter.api.Test;
 
@@ -33,7 +39,8 @@ public class SpliteratorTest{
            Spliterator<String> lineSpliterator = lines.spliterator();
            Spliterator<Person> peopleSpliterator = new PersonSpliterator(lineSpliterator);
            Stream<Person> people = StreamSupport.stream(peopleSpliterator, false);
-           people.forEach(System.out::println);
+           
+           assertEquals(expectedPeople, people.collect(Collectors.toList())); 
            lines.close();
             
         }catch(IOException e){
